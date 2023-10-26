@@ -138,10 +138,6 @@ function renderCatalog(products) {
         <div class="sizes-section">
             <p class="card-text">Tamanhos Disponíveis: ${sizes}</p>
         </div>
-        <a href="#" class="btn ${product.isFavorite ? 'btn-danger' : 'btn-primary'} btn-sm"
-            data-index="${index}" onclick="toggleFavorite(this); event.preventDefault();">
-            ${product.isFavorite ? 'Desfavoritar ❤' : 'Favoritar ❤'}
-        </a>
     </div>
     `;
     
