@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Roupas</title>
+    <meta property="og:title" content="Loja Anilina">
+    <meta property="og:description" content="Novidades e lançamentos em Primeira Mão">
+    <meta property="og:image" content="https://victor26sp.github.io/Projeto---up4/imagens/88117GOIABA.jpg">
+    <meta property="og:url" content="https://victor26sp.github.io/Projeto---up4/">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="node_modules/bootstrap-icons/icons" rel="stylesheet">
+
+</head>
+
+<body>
+  
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Loja Anilina</a>
+
+        <!-- Botão de navegação para telas grandes (alinhado à esquerda) -->
+        <button class="navbar-toggler d-none d-lg-block mr-auto" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Botão de navegação para telas pequenas (alinhado à direita) -->
+        <button class="navbar-toggler d-lg-none ml-auto" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Barra de pesquisa -->
+        <form class="form-inline my-2 my-lg-0 ml-auto">
+            <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" id="searchInput">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="button" id="searchButton">Pesquisar</button>
+        </form> 
+
+        <!-- Fim da Barra de Pesquisa -->
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <!-- Seus links de navegação aqui -->
+            </ul>
+        </div>
+    </div>
+</nav>
+    <!-- Offcanvas Navbar -->
+    <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Loja Anilina</h5>
+            <img src="favicon.ico" alt="">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+
+                <!-- Container de Filtro por Categoria -->
+                <div id="categoryFilterContainer">
+                    <label for="categoryFilter" class="form-label">Filtrar por Categoria</label>
+                    <select id="categoryFilter" class="form-select">
+                        <option value="">Todas as Categorias</option>
+                    </select>
+                </div>
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="container mt-4">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-20">
+                <div id="catalog" class="row"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; 2023 Loja Anilina
+    </footer>
+
+    <!-- Scripts -->
+    <script src="email.js"></script>
+    <script src="whats.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
