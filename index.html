@@ -15,45 +15,45 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="node_modules/bootstrap-icons/icons" rel="stylesheet">
-
 </head>
 
 <body>
-  
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">Loja Anilina</a>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Loja Anilina</a>
 
-        <!-- Botão de navegação para telas grandes (alinhado à esquerda) -->
-        <button class="navbar-toggler d-none d-lg-block mr-auto" type="button" data-bs-toggle="offcanvas"
+            <!-- Botão de navegação para telas grandes (alinhado à esquerda) -->
+            <button class="navbar-toggler d-none d-lg-block mr-auto" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
                 aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <!-- Botão de navegação para telas pequenas (alinhado à direita) -->
-        <button class="navbar-toggler d-lg-none ml-auto" type="button" data-bs-toggle="offcanvas"
+            <!-- Botão de navegação para telas pequenas (alinhado à direita) -->
+            <button class="navbar-toggler d-lg-none ml-auto" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
                 aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <!-- Barra de pesquisa -->
-        <form class="form-inline my-2 my-lg-0 ml-auto">
-            <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" id="searchInput">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="button" id="searchButton">Pesquisar</button>
-        </form> 
+            <!-- Barra de pesquisa -->
+            <form class="form-inline my-2 my-lg-0 ml-auto">
+                <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar"
+                    id="searchInput">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="button" id="searchButton">Pesquisar</button>
+            </form>
 
-        <!-- Fim da Barra de Pesquisa -->
+            <!-- Fim da Barra de Pesquisa -->
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <!-- Seus links de navegação aqui -->
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <!-- Seus links de navegação aqui -->
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+
     <!-- Offcanvas Navbar -->
     <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="offcanvasNavbar"
         aria-labelledby="offcanvasNavbarLabel">
@@ -64,7 +64,6 @@
         </div>
         <div class="offcanvas-body">
             <ul class="navbar-nav">
-
                 <!-- Container de Filtro por Categoria -->
                 <div id="categoryFilterContainer">
                     <label for="categoryFilter" class="form-label">Filtrar por Categoria</label>
@@ -72,7 +71,6 @@
                         <option value="">Todas as Categorias</option>
                     </select>
                 </div>
-
             </ul>
         </div>
     </div>
@@ -80,7 +78,7 @@
     <!-- Page Content -->
     <div class="container mt-4">
         <div class="row justify-content-center text-center">
-            <div class="col-md-20">
+            <div class="col-md-12">
                 <div id="catalog" class="row"></div>
             </div>
         </div>
@@ -92,8 +90,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="email.js"></script>
-    <script src="whats.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
