@@ -147,8 +147,8 @@ function renderCatalog(products) {
                 sendWhatsApp(button);
             });
         });
-    });
-}
+
+
 
 function importCSV(file) {
     fetch(file)
