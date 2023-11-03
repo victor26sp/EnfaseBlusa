@@ -140,6 +140,26 @@ function renderCatalog(products) {
             });
         });
 
+        function addToCart(button) {
+            const productIndex = parseInt(button.getAttribute('data-index'));
+            const product = products[productIndex];
+        
+            // Verifique se o produto já está no carrinho
+            const cartItem = cartItems.find(item => item.product.sku === product.sku);
+        
+            if (cartItem) {
+                // Se o produto já estiver no carrinho, incremente a quantidade
+                cartItem.quantity++;
+            } else {
+                // Se o produto não estiver no carrinho, adicione-o ao carrinho
+                cartItems.push({ product, quantity: 1 });
+            }
+        
+            // Atualize a exibição do carrinho ou faça qualquer outra ação necessária
+            updateCartDisplay();
+        }
+        
+
         // Adicione event listener para botões "Enviar via WhatsApp"
         const sendWhatsappButtons = document.querySelectorAll('.send-whatsapp');
         sendWhatsappButtons.forEach(button => {
