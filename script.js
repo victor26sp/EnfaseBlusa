@@ -110,7 +110,6 @@ function renderCatalog(products) {
         card.innerHTML = `
         <div class="card-image" style="position: relative;">
             <img src="imagens/${product.image}" class="card-img-top" alt="${product.description}">
-            <div class="video-container" id="video-container-${product.sku}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
         </div>
     </div>
     <div class="card-body">
@@ -131,11 +130,7 @@ function renderCatalog(products) {
     
         col.appendChild(card);
         catalogDiv.appendChild(col);
-    
-        // Adicione a funcionalidade de vídeo
-        showVideo(product);
-    });
-    
+
     // Adicione event listener para botões "Adicionar ao Carrinho"
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
     addToCartButtons.forEach(button => {
