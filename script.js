@@ -2,29 +2,10 @@ const catalogDiv = document.getElementById('catalog');
 const cartContainer = document.getElementById('cart');
 let products = [];
 let categoryFilter = '';
-let favoriteFilter = false;
 let skuToProductMap = {}; // Mapeamento SKU para produtos
 let cartItems = [];
 
 const whatsappNumber = "SEU_NUMERO_DE_WHATSAPP"; // Substitua pelo seu número de WhatsApp
-
-function toggleFavorite(btn) {
-    btn.classList.toggle('btn-danger');
-    btn.classList.toggle('btn-primary');
-
-    const productIndex = parseInt(btn.getAttribute('data-index'));
-
-    products[productIndex].isFavorite = !products[productIndex].isFavorite;
-
-    renderCatalog(products);
-}
-
-function clearFavorites() {
-    products.forEach(product => {
-        product.isFavorite = false;
-    });
-    renderCatalog(products);
-}
 
 function createSizeGrid(product) {
     const sizeGridContainer = document.createElement('div');
@@ -200,7 +181,6 @@ function importCSV(file) {
                         sizes: [], // Inicialize um array vazio de tamanhos
                         isFavorite: false,
                         sku, // Adicione o SKU ao objeto do produto
-                        video, // Adicione o nome do arquivo de vídeo ao objeto do produto
                     };
 
                     // Adicione o produto ao mapeamento SKU
@@ -246,28 +226,6 @@ function populateCategoryFilter() {
         option.textContent = category;
         categoryFilterSelect.appendChild(option);
     });
-}
-
-function showVideo(product) {
-    if (product.video) {
-        const videoContainer = document.getElementById(`video-container-${product.sku}`);
-        const video = document.createElement('video');
-        video.src = `videos/${product.video}`;
-        video.autoplay = true; // Inicie a reprodução automaticamente
-        video.loop = true; // Faça o vídeo repetir em um loop
-        video.style.width = '100%'; // Define a largura do vídeo como 100% da div pai
-        video.style.height = '100%'; // Define a altura do vídeo como 100% da div pai
-
-        videoContainer.addEventListener('mouseenter', () => {
-            video.play(); // Inicie o vídeo quando o mouse entrar na área
-        });
-
-        videoContainer.addEventListener('mouseleave', () => {
-            video.pause(); // Pausa o vídeo quando o mouse sair da área
-        });
-
-        videoContainer.appendChild(video);
-    }
 }
 
 function sendWhatsApp(button) {
