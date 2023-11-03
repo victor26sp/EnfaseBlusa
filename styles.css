@@ -1,196 +1,70 @@
 /* Estilos gerais */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #F3F3F3;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
     color: #333;
+    background-color: #f4f4f4;
+    padding-top: 70px;
 }
 
-/* Estilos para o cabeçalho */
+/* Cabeçalho */
 .navbar {
-    background-color: #9400d3;
-    margin-bottom: 20px;
-    border-bottom: 3px solid #bf0000;
-    transition: background-color 0.3s;
-    position: relative;
-}
-
-.navbar-brand {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-right: 20px;
-    color: #daec0f;
-    transition: color 0.3s;
-}
-
-.navbar-brand:hover {
+    background: #000;
     color: #fff;
 }
 
-/* Estilos para as cartas */
+.navbar a {
+    color: #fff;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    margin: 0.3rem 0.6rem;
+    background: #333;
+    color: #fff;
+    padding: 0.6rem 1.3rem;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #555;
+}
+
+/* Cartas de produtos */
 .card {
-    margin-bottom: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+    background: #fff;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    margin: 1rem;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.card-title {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    font-weight: bold;
-    color: #333;
+.card img {
+    width: 100%;
+    border-bottom: 1px solid #efefef;
 }
 
-.card-text {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 10px;
-    flex-grow: 1;
-}
-
-/* Estilos para a barra de rolagem */
-body::-webkit-scrollbar {
-    width: 10px;
-    background-color: #f1f1f1;
-}
-
-body::-webkit-scrollbar-track {
-    background-color: transparent;
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 5px;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-}
-
-/* Estilos para o botão de favoritar */
-.card .card-body .btn {
-    margin-top: auto;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
+/* Rodapé */
+footer {
+    background: #333;
+    color: #fff;
     text-align: center;
+    padding: 2rem;
 }
 
-.card .card-body .btn:hover {
-    background-color: #218838;
+footer a {
+    color: #fff;
 }
 
-/* Estilos responsivos para telas com largura máxima de 768px */
-@media (max-width: 768px) {
-    .card {
-        margin-bottom: 20px;
-    }
-    
-    #categoryFilterContainer {
-        margin-bottom: 20px;
-    }
-    
-    .d-none {
-        display: none !important;
-    }
-}
-
-/* Estilos para telas maiores que 768px */
-@media (min-width: 769px) {
-    .card {
-        margin-bottom: 30px;
-    }
-
-    #categoryFilterContainer {
-        margin-bottom: 30px;
-    }
-
-    .d-none {
-        display: block !important;
-    }
-}
-
-/* Estilos para o rodapé */
-.footer {
-    background-color: #343a40;
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-    font-size: 1rem;
-}
-
-/* Estilos para os links no rodapé */
-.footer a {
-    color: #daec0f;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.footer a:hover {
-    color: #bbd308;
-}
-
-/* Estilo para o ícone do botão de navegação */
-.navbar-toggler-icon {
-    background-color: transparent;
-    width: 30px;
-    height: 3px;
-    border-radius: 2px;
-    position: relative;
-    transition: transform 0.3s, opacity 0.3s;
-    display: block;
-}
-
-/* Estilo das barras horizontais do ícone */
-.navbar-toggler-icon::before,
-.navbar-toggler-icon::after {
-    content: "";
-    background-color: #333;
-    width: 60px;
-    height: 10px;
-    border-radius: 2px;
-    position: relative;
-    transition: transform 0.3s, opacity 0.3s;
-}
-
-/* Estilo das barras horizontais do ícone */
-.navbar-toggler-icon::before {
-    top: -8px;
-    transform-origin: 0 0;
-}
-
-.navbar-toggler-icon::after {
-    top: 8px;
-    transform-origin: 0 100%;
-}
-
-/* Efeito de animação ao passar o mouse sobre o botão */
-.navbar-toggler-icon:hover {
-    transform: rotate(90deg);
-}
-
-.navbar-toggler-icon:hover::before {
-    transform: translateY(0) rotate(45deg);
-    opacity: 0.7;
-}
-
-.navbar-toggler-icon:hover::after {
-    transform: translateY(0) rotate(-45deg);
-    opacity: 0.7;
+footer a:hover {
+    color: #aaa;
 }
