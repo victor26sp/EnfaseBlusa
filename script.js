@@ -80,6 +80,8 @@ function renderCatalog(products) {
 
     const searchInput = document.getElementById('searchInput').value.trim().toLowerCase(); // Obtenha o valor da barra de pesquisa e converta para minúsculas
 
+    const favoriteFilter = false; // Adicione ou defina a lógica para o filtro de favoritos
+
     const filteredProducts = products.filter(product => {
         if (favoriteFilter && !product.isFavorite) {
             return false;
@@ -103,7 +105,7 @@ function renderCatalog(products) {
     filteredProducts.forEach((product, index) => {
         const col = document.createElement('div');
         col.classList.add('col-md-4', 'mb-4');
-    
+
         const card = document.createElement('div');
         card.classList.add('card', 'h-100');
         const sizes = product.sizes.map(sizeObj => sizeObj.size).join(', ');
@@ -111,39 +113,39 @@ function renderCatalog(products) {
         <div class="card-image" style="position: relative;">
             <img src="imagens/${product.image}" class="card-img-top" alt="${product.description}">
         </div>
-    </div>
-    <div class="card-body">
-        <h5 class="card-title">${product.description}</h5>
-        <p class="card-text">Ref: ${product.ref}</p>
-        <p class="card-text">Cor: ${product.color}</p>
-        <p class="card-text">${product.category}</p>
-        <p class="card-text">${product.composition}</p>
-        <div class="sizes-section">
-            <p class="card-text">Tamanhos Disponíveis: ${sizes}</p>
+        <div class="card-body">
+            <h5 class="card-title">${product.description}</h5>
+            <p class="card-text">Ref: ${product.ref}</p>
+            <p class="card-text">Cor: ${product.color}</p>
+            <p class="card-text">${product.category}</p>
+            <p class="card-text">${product.composition}</p>
+            <div class="sizes-section">
+                <p class="card-text">Tamanhos Disponíveis: ${sizes}</p>
+            </div>
         </div>
-    </div>
-    <div class="card-footer">
-        <button class="btn btn-primary add-to-cart" data-index="${index}">Adicionar ao Carrinho</button>
-        <button class="btn btn-success send-whatsapp" data-index="${index}">Enviar via WhatsApp</button>
-    </div>
-    `;
-    
+        <div class="card-footer">
+            <button class="btn btn-primary add-to-cart" data-index="${index}">Adicionar ao Carrinho</button>
+            <button class="btn btn-success send-whatsapp" data-index="${index}">Enviar via WhatsApp</button>
+        </div>
+        `;
+
         col.appendChild(card);
         catalogDiv.appendChild(col);
 
-    // Adicione event listener para botões "Adicionar ao Carrinho"
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            addToCart(button);
+        // Adicione event listener para botões "Adicionar ao Carrinho"
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                addToCart(button);
+            });
         });
-    });
 
-    // Adicione event listener para botões "Enviar via WhatsApp"
-    const sendWhatsappButtons = document.querySelectorAll('.send-whatsapp');
-    sendWhatsappButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            sendWhatsApp(button);
+        // Adicione event listener para botões "Enviar via WhatsApp"
+        const sendWhatsappButtons = document.querySelectorAll('.send-whatsapp');
+        sendWhatsappButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                sendWhatsApp(button);
+            });
         });
     });
 }
@@ -207,20 +209,6 @@ function importCSV(file) {
             renderCatalog(products);
             populateCategoryFilter();
         });
-}
-
-function populateCategoryFilter() {
-    const categoryFilterSelect = document.getElementById('categoryFilter');
-    const categories = Array.from(new Set(products.map(product => product.category)));
-    categories.sort();
-
-    categoryFilterSelect.innerHTML = '<option value="">Todas as Categorias</option>';
-    categories.forEach(category => {
-        const option = document.createElement('option');
-        option.value = category;
-        option.textContent = category;
-        categoryFilterSelect.appendChild(option);
-    });
 }
 
 function sendWhatsApp(button) {
