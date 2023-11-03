@@ -2,10 +2,10 @@ const catalogDiv = document.getElementById('catalog');
 const cartContainer = document.getElementById('cart');
 let products = [];
 let categoryFilter = '';
-let skuToProductMap = {}; // Mapeamento SKU para produtos
+let skuToProductMap = {};
 let cartItems = [];
 
-const whatsappNumber = "SEU_NUMERO_DE_WHATSAPP"; // Substitua pelo seu número de WhatsApp
+const whatsappNumber = "SEU_NUMERO_DE_WHATSAPP";
 
 function createSizeGrid(product) {
     const sizeGridContainer = document.createElement('div');
@@ -37,7 +37,7 @@ function createSizeGrid(product) {
         quantityInput.classList.add('form-control', 'text-center');
         quantityInput.type = 'number';
         quantityInput.min = 0;
-        quantityInput.max = sizeObj.stock; // Defina o estoque máximo disponível
+        quantityInput.max = sizeObj.stock;
         quantityInput.value = '0';
         quantityInput.dataset.productSku = product.sku;
 
@@ -46,25 +46,23 @@ function createSizeGrid(product) {
         inputGroupText.textContent = 'Qtd';
 
         const quantityMessage = document.createElement('div');
-        quantityMessage.classList.add('alert', 'alert-danger', 'mt-2'); // Classes de alerta Bootstrap
+        quantityMessage.classList.add('alert', 'alert-danger', 'mt-2');
         quantityMessage.textContent = 'Quantidade máxima atingida.';
-        quantityMessage.style.display = 'none'; // Inicialmente, oculte a mensagem de erro
+        quantityMessage.style.display = 'none';
 
         inputGroup.appendChild(quantityInput);
         inputGroup.appendChild(inputGroupText);
         cell.appendChild(inputGroup);
         cell.appendChild(quantityMessage);
 
-        // Adicione um evento de alteração ao campo de quantidade
         quantityInput.addEventListener('change', () => {
             const selectedQuantity = parseInt(quantityInput.value);
 
             if (selectedQuantity > sizeObj.stock) {
-                // Se a quantidade selecionada for maior que o estoque, exiba a mensagem
-                quantityMessage.style.display = 'block'; // Exiba a mensagem de erro
+                quantityMessage.style.display = 'block';
                 quantityInput.value = sizeObj.stock;
             } else {
-                quantityMessage.style.display = 'none'; // Oculte a mensagem de erro
+                quantityMessage.style.display = 'none';
             }
         });
     });
@@ -78,9 +76,8 @@ function createSizeGrid(product) {
 function renderCatalog(products) {
     catalogDiv.innerHTML = '';
 
-    const searchInput = document.getElementById('searchInput').value.trim().toLowerCase(); // Obtenha o valor da barra de pesquisa e converta para minúsculas
-
-    const favoriteFilter = false; // Adicione ou defina a lógica para o filtro de favoritos
+    const searchInput = document.getElementById('searchInput').value.trim().toLowerCase();
+    const favoriteFilter = false;
 
     const filteredProducts = products.filter(product => {
         if (favoriteFilter && !product.isFavorite) {
@@ -90,13 +87,12 @@ function renderCatalog(products) {
             return false;
         }
         if (searchInput) {
-            // Verifique se algum dos campos (ref, descrição ou grupo) contém o texto de pesquisa
             if (
                 !product.ref.toLowerCase().includes(searchInput) &&
                 !product.description.toLowerCase().includes(searchInput) &&
                 !product.category.toLowerCase().includes(searchInput)
             ) {
-                return false; // Não corresponde à pesquisa
+                return false;
             }
         }
         return true;
@@ -132,7 +128,6 @@ function renderCatalog(products) {
         col.appendChild(card);
         catalogDiv.appendChild(col);
 
-        // Adicione event listener para botões "Adicionar ao Carrinho"
         const addToCartButtons = document.querySelectorAll('.add-to-cart');
         addToCartButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -140,7 +135,6 @@ function renderCatalog(products) {
             });
         });
 
-        // Adicione event listener para botões "Enviar via WhatsApp"
         const sendWhatsappButtons = document.querySelectorAll('.send-whatsapp');
         sendWhatsappButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -154,18 +148,14 @@ function addToCart(button) {
     const productIndex = parseInt(button.getAttribute('data-index'));
     const product = products[productIndex];
 
-    // Verifique se o produto já está no carrinho
     const cartItem = cartItems.find(item => item.product.sku === product.sku);
 
     if (cartItem) {
-        // Se o produto já estiver no carrinho, incremente a quantidade
         cartItem.quantity++;
     } else {
-        // Se o produto não estiver no carrinho, adicione-o ao carrinho
         cartItems.push({ product, quantity: 1 });
     }
 
-    // Atualize a exibição do carrinho ou faça qualquer outra ação necessária
     updateCartDisplay();
 }
 
@@ -175,7 +165,7 @@ function importCSV(file) {
         .then(data => {
             const lines = data.split('\n');
             products = [];
-            skuToProductMap = {}; // Limpe o mapeamento
+            skuToProductMap = {};
 
             for (let i = 1; i < lines.length; i++) {
                 const line = lines[i].trim();
@@ -194,26 +184,22 @@ function importCSV(file) {
                         color,
                         composition,
                         image,
-                        sizes: [], // Inicialize um array vazio de tamanhos
+                        sizes: [],
                         isFavorite: false,
-                        sku, // Adicione o SKU ao objeto do produto
+                        sku,
                     };
 
-                    // Adicione o produto ao mapeamento SKU
                     skuToProductMap[sku] = product;
 
-                    // Crie um objeto de tamanho com tamanho e estoque correspondentes
                     const sizeObj = {
                         size,
                         stock: parseInt(stock),
                     };
 
-                    // Adicione o objeto de tamanho ao array de tamanhos do produto
                     product.sizes.push(sizeObj);
 
                     products.push(product);
                 } else {
-                    // Verifique se já existe um tamanho com o mesmo nome e, se não, adicione-o
                     const existingSize = existingProduct.sizes.find(existingSize => existingSize.size === size);
                     if (!existingSize) {
                         const sizeObj = {
@@ -244,7 +230,7 @@ function sendWhatsApp(button) {
 }
 
 function getSelectedSize(product) {
-    const sizeInputs = document.querySelectorAll(`input[data-product-sku="${product.sku}"]`);
+    const sizeInputs = document.querySelectorAll(`input[data-product-sku="${product.sku}`);
     for (const sizeInput of sizeInputs) {
         if (sizeInput.value > 0) {
             return sizeInput.value;
