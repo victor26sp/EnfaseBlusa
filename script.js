@@ -244,7 +244,7 @@ function sendWhatsApp(button) {
 }
 
 function getSelectedSize(product) {
-    const sizeInputs = document.querySelectorAll(`input[data-product-sku="${product.sku}`);
+    const sizeInputs = document.querySelectorAll(`input[data-product-sku="${product.sku}"]`);
     for (const sizeInput of sizeInputs) {
         if (sizeInput.value > 0) {
             return sizeInput.value;
