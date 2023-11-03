@@ -42,14 +42,18 @@
                     id="searchInput">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="button" id="searchButton">Pesquisar</button>
             </form>
-
             <!-- Fim da Barra de Pesquisa -->
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <!-- Seus links de navegação aqui -->
-                </ul>
-            </div>
+            <!-- Carrinho e Modelos -->
+            <button class="btn btn-outline-light ml-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#cart"
+                aria-label="Toggle cart">
+                Carrinho
+            </button>
+            <button class="btn btn-outline-light ml-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#models"
+                aria-label="Toggle models">
+                Modelos
+            </button>
+            <!-- Fim Carrinho e Modelos -->
         </div>
     </nav>
 
@@ -61,15 +65,36 @@
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                 aria-label="Close"></button>
         </div>
+        <!-- Conteúdo do Offcanvas -->
+        <!-- Adicione os links de navegação ou outras informações desejadas aqui -->
+    </div>
+
+    <!-- Offcanvas Carrinho -->
+    <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="cart"
+        aria-labelledby="cartLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="cartLabel">Carrinho</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
         <div class="offcanvas-body">
-            <ul class="navbar-nav">
-                <!-- Container de Filtro por Categoria -->
-                <div id="categoryFilterContainer">
-                    <label for="categoryFilter" class="form-label">Filtrar por Categoria</label>
-                    <select id="categoryFilter" class="form-select">
-                        <option value="">Todas as Categorias</option>
-                    </select>
-                </div>
+            <ul id="cartItems" class="list-group">
+                <!-- Os itens do carrinho serão adicionados aqui dinamicamente -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Offcanvas Modelos -->
+    <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="models"
+        aria-labelledby="modelsLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="modelsLabel">Selecionar Modelos</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul id="modelSelection" class="list-group">
+                <!-- Os modelos selecionados serão adicionados aqui dinamicamente -->
             </ul>
         </div>
     </div>
