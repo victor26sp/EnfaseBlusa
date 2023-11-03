@@ -36,26 +36,6 @@ body {
     /* Cor do texto do logotipo ao passar o mouse */
 }
 
-/* Estilos para o botão de impressão */
-#printButton {
-    margin-top: 1rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    font-weight: bold;
-    padding: 10px 20px;
-    /* Aumenta o tamanho do botão */
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    text-transform: uppercase;
-    /* Transforma o texto em maiúsculas */
-}
-
-#printButton:hover {
-    background-color: #0056b3;
-}
-
 /* Estilos para as cartas */
 .card {
     margin-bottom: 20px;
@@ -246,72 +226,4 @@ body::-webkit-scrollbar-thumb:hover {
 .navbar-toggler-icon:hover::after {
     transform: translateY(0) rotate(-45deg);
     opacity: 0.7;
-}
-
-/* Estilos para a impressão */
-@media print {
-    .printable-card {
-        border: 1px solid #ccc;
-        margin: 1rem;
-        padding: 1rem;
-        box-shadow: none;
-        page-break-inside: avoid;
-        max-width: 100%;
-        /* Garanta que o conteúdo não exceda o tamanho da página */
-    }
-
-    .printable-title {
-        font-size: 1.2rem;
-        /* Reduza o tamanho da fonte do título */
-    }
-
-    .printable-text {
-        font-size: 1rem;
-        /* Reduza o tamanho da fonte do texto */
-    }
-}
-/* Estilos para a área da imagem e vídeo */
-.card-image {
-    position: relative;
-    cursor: pointer;
-}
-
-/* Estilos para a área da imagem e vídeo */
-.card-image {
-    position: relative;
-    cursor: pointer;
-}
-
-/* Estilos para a área da imagem e vídeo */
-.card-image {
-    position: relative;
-    cursor: pointer;
-}
-
-/* Estilo padrão para ocultar o vídeo */
-.video-container {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Ocupa toda a largura do elemento pai */
-    height: 100%; /* Ocupa toda a altura do elemento pai */
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro para o vídeo */
-    transition: opacity 0.3s; /* Efeito de transição suave */
-}
-
-/* Estilo para o vídeo quando visível */
-.video-container video {
-    width: 100%; /* Ocupa toda a largura do elemento pai */
-    height: 100%; /* Ocupa toda a altura do elemento pai */
-    opacity: 0; /* Começa invisível */
-}
-
-/* Efeito de transição de fade-in para o vídeo */
-.card-image:hover .video-container {
-    display: block;
-}
-
-.card-image:hover .video-container video {
-    opacity: 1; /* Torna-se visível com transição */
 }
