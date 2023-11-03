@@ -226,7 +226,6 @@ function importCSV(file) {
             }
 
             renderCatalog(products);
-            populateCategoryFilter();
         });
 }
 
