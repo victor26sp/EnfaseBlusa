@@ -162,7 +162,7 @@ function importCSV(file) {
                     break;
                 }
 
-                const [ref, description, category, color, composition, sku, stock, size, image, video] = line.split(';');
+                const [ref, description, category, color, composition, sku, stock, size, image] = line.split(';');
                 const existingProduct = products.find(product => product.image === image);
 
                 if (!existingProduct) {
