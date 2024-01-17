@@ -122,7 +122,7 @@ function renderCatalog(products) {
             <p class="card-text">${product.composition}</p>
             <div class="sizes-section">
                 <p class="card-text">Tamanhos Disponíveis: ${sizes}</p>
-                ${createSizeGrid(product).outerHTML} <!-- Adicione a grade de tamanhos aqui -->
+                <!-- Adicione a grade de tamanhos aqui -->
             </div>
         </div>
         <div class="card-footer">
@@ -219,11 +219,11 @@ function sendWhatsApp(button) {
     const selectedSize = product.sizes[sizeIndex];
     const ref = product.ref;
     const description = product.description;
-    sendWhatsAppMessage(ref, description, selectedSize.size);
+    sendWhatsAppMessage(ref, description);
 }
 
-function sendWhatsAppMessage(ref, description, size) {
-    const message = generateWhatsAppMessage(ref, description, size);
+function sendWhatsAppMessage(ref, description,) {
+    const message = generateWhatsAppMessage(ref, description);
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappLink, '_blank');
 }
