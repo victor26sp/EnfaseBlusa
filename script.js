@@ -70,11 +70,11 @@ function createSizeGrid(product) {
         //});
     //});
 
-    //sizeGrid.appendChild(table);
-    //sizeGridContainer.appendChild(sizeGrid);
+    sizeGrid.appendChild(table);
+    sizeGridContainer.appendChild(sizeGrid);
 
-    //return sizeGridContainer;
-//}
+    return sizeGridContainer;
+}
 
 function renderCatalog(products) {
     catalogDiv.innerHTML = '';
