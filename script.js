@@ -5,7 +5,7 @@ let categoryFilter = '';
 let skuToProductMap = {}; // Mapeamento SKU para produtos
 let cartItems = [];
 
-const whatsappNumber = "SEU_NUMERO_DE_WHATSAPP"; // Substitua pelo seu número de WhatsApp
+const whatsappNumber = "5517982270013"; // Substitua pelo seu número de WhatsApp
 
 function createSizeGrid(product) {
     const sizeGridContainer = document.createElement('div');
@@ -26,21 +26,21 @@ function createSizeGrid(product) {
 
     const quantityRow = table.insertRow(1);
 
-    product.sizes.forEach((sizeObj, index) => {
-        const cell = quantityRow.insertCell(index);
-        cell.classList.add('text-center');
+    //product.sizes.forEach((sizeObj, index) => {
+        //const cell = quantityRow.insertCell(index);
+        //cell.classList.add('text-center');
 
-        const inputGroup = document.createElement('div');
-        inputGroup.classList.add('input-group', 'mb-3');
+        //const inputGroup = document.createElement('div');
+        //inputGroup.classList.add('input-group', 'mb-3');
 
-        const quantityInput = document.createElement('input');
-        quantityInput.classList.add('form-control', 'text-center');
-        quantityInput.type = 'number';
-        quantityInput.min = 0;
-        quantityInput.max = sizeObj.stock; // Defina o estoque máximo disponível
-        quantityInput.value = '0';
-        quantityInput.dataset.productSku = product.sku;
-        quantityInput.dataset.productSizeIndex = index; // Adicione o índice do tamanho ao campo de quantidade
+        //const quantityInput = document.createElement('input');
+        //quantityInput.classList.add('form-control', 'text-center');
+        //quantityInput.type = 'number';
+        //quantityInput.min = 0;
+        //quantityInput.max = sizeObj.stock; // Defina o estoque máximo disponível
+        //quantityInput.value = '0';
+        //quantityInput.dataset.productSku = product.sku;
+        //.quantityInput.dataset.productSizeIndex = index; // Adicione o índice do tamanho ao campo de quantidade
 
         const inputGroupText = document.createElement('span');
         inputGroupText.classList.add('input-group-text');
