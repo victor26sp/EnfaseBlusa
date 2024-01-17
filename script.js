@@ -126,8 +126,8 @@ function renderCatalog(products) {
             </div>
         </div>
         <div class="card-footer">
-            <button class="btn btn-primary add-to-cart" data-index="${index}">Adicionar ao Carrinho</button>
-            <button class="btn btn-success send-whatsapp" data-index="${index}">Enviar via WhatsApp</button>
+            <button class="btn btn-primary add-to-cart" data-index="">Adicionar ao Carrinho</button>
+            <button class="btn btn-success send-whatsapp" data-index="">Enviar via WhatsApp</button>
         </div>
         `;
 
