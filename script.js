@@ -26,49 +26,49 @@ function createSizeGrid(product) {
 
     const quantityRow = table.insertRow(1);
 
-    //product.sizes.forEach((sizeObj, index) => {
-        //const cell = quantityRow.insertCell(index);
-        //cell.classList.add('text-center');
+    product.sizes.forEach((sizeObj, index) => {
+        const cell = quantityRow.insertCell(index);
+        cell.classList.add('text-center');
 
-        //const inputGroup = document.createElement('div');
-        //inputGroup.classList.add('input-group', 'mb-3');
+        const inputGroup = document.createElement('div');
+        inputGroup.classList.add('input-group', 'mb-3');
 
-        //const quantityInput = document.createElement('input');
-        //quantityInput.classList.add('form-control', 'text-center');
-        //quantityInput.type = 'number';
-        //quantityInput.min = 0;
-        //quantityInput.max = sizeObj.stock; // Defina o estoque máximo disponível
-        //quantityInput.value = '0';
-        //quantityInput.dataset.productSku = product.sku;
-        //quantityInput.dataset.productSizeIndex = index; // Adicione o índice do tamanho ao campo de quantidade
+        const quantityInput = document.createElement('input');
+        quantityInput.classList.add('form-control', 'text-center');
+        quantityInput.type = 'number';
+        quantityInput.min = 0;
+        quantityInput.max = sizeObj.stock; // Defina o estoque máximo disponível
+        quantityInput.value = '0';
+        quantityInput.dataset.productSku = product.sku;
+        quantityInput.dataset.productSizeIndex = index; // Adicione o índice do tamanho ao campo de quantidade
 
-        //const inputGroupText = document.createElement('span');
-        //inputGroupText.classList.add('input-group-text');
-        //inputGroupText.textContent = 'Qtd';
+        const inputGroupText = document.createElement('span');
+        inputGroupText.classList.add('input-group-text');
+        inputGroupText.textContent = 'Qtd';
 
-        //const quantityMessage = document.createElement('div');
-        //quantityMessage.classList.add('alert', 'alert-danger', 'mt-2'); // Classes de alerta Bootstrap
-        //quantityMessage.textContent = 'Quantidade máxima atingida.';
-        //quantityMessage.style.display = 'none'; // Inicialmente, oculte a mensagem de erro
+        const quantityMessage = document.createElement('div');
+        quantityMessage.classList.add('alert', 'alert-danger', 'mt-2'); // Classes de alerta Bootstrap
+        quantityMessage.textContent = 'Quantidade máxima atingida.';
+        quantityMessage.style.display = 'none'; // Inicialmente, oculte a mensagem de erro
 
-        //inputGroup.appendChild(quantityInput);
-        //inputGroup.appendChild(inputGroupText);
-        //cell.appendChild(inputGroup);
-        //cell.appendChild(quantityMessage);
+        inputGroup.appendChild(quantityInput);
+        inputGroup.appendChild(inputGroupText);
+        cell.appendChild(inputGroup);
+        cell.appendChild(quantityMessage);
 
         // Adicione um evento de alteração ao campo de quantidade
-        //quantityInput.addEventListener('change', () => {
-            //const selectedQuantity = parseInt(quantityInput.value);
+        quantityInput.addEventListener('change', () => {
+            const selectedQuantity = parseInt(quantityInput.value);
 
-            //if (selectedQuantity > sizeObj.stock) {
+            if (selectedQuantity > sizeObj.stock) {
                 // Se a quantidade selecionada for maior que o estoque, exiba a mensagem
-                //quantityMessage.style.display = 'block'; // Exiba a mensagem de erro
-                //quantityInput.value = sizeObj.stock;
-            //} else {
-                //quantityMessage.style.display = 'none'; // Oculte a mensagem de erro
-            //}
-        //});
-    //});
+                quantityMessage.style.display = 'block'; // Exiba a mensagem de erro
+                quantityInput.value = sizeObj.stock;
+            } else {
+                quantityMessage.style.display = 'none'; // Oculte a mensagem de erro
+            }
+        });
+    });
 
     sizeGrid.appendChild(table);
     sizeGridContainer.appendChild(sizeGrid);
