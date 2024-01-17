@@ -125,10 +125,7 @@ function renderCatalog(products) {
                 <!-- Adicione a grade de tamanhos aqui -->
             </div>
         </div>
-        <div class="card-footer">
-            <button class="btn btn-primary add-to-cart" data-index="">Adicionar ao Carrinho</button>
-            <button class="btn btn-success send-whatsapp" data-index="">Enviar via WhatsApp</button>
-        </div>
+        
         `;
 
         col.appendChild(card);
