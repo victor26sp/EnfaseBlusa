@@ -120,8 +120,10 @@ function renderCatalog(products) {
             <p class="card-text">Cor: ${product.color}</p>
             <p class="card-text">${product.category}</p>
             <p class="card-text">${product.composition}</p>
+            <p class="card-text" style="color: red;">R$25,00</p>
             <div class="sizes-section">
-                <p class="card-text">Tamanhos Disponíveis: ${sizes}</p>
+                <p class="card-text">Tamanhos Disponíveis:</p>
+                <p class="card-text">${sizes}</p>
                 <!-- Adicione a grade de tamanhos aqui -->
             </div>
         </div>
