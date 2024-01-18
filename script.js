@@ -5,7 +5,7 @@ let categoryFilter = '';
 let skuToProductMap = {}; // Mapeamento SKU para produtos
 let cartItems = [];
 
-const whatsappNumber = "5517982270013"; // Substitua pelo seu número de WhatsApp
+const whatsappNumber = ""; // Substitua pelo seu número de WhatsApp
 
 function createSizeGrid(product) {
     const sizeGridContainer = document.createElement('div');
@@ -120,7 +120,7 @@ function renderCatalog(products) {
             <p class="card-text">Cor: ${product.color}</p>
             <p class="card-text">${product.category}</p>
             <p class="card-text">${product.composition}</p>
-            <p class="card-text" style="color: red;">R$25,00</p>
+            <p class="card-text" style="color: red;">${product.price}</p>
             <div class="sizes-section">
                 <p class="card-text">Tamanhos Disponíveis:</p>
                 <p class="card-text">${sizes}</p>
@@ -241,7 +241,7 @@ function importCSV(file) {
                     break;
                 }
 
-                const [ref, description, category, color, composition, sku, stock, size, image] = line.split(';');
+                const [ref, description, category, color, composition, sku, stock, size, image, price,] = line.split(';');
                 const existingProduct = products.find(product => product.image === image);
 
                 if (!existingProduct) {
@@ -254,7 +254,9 @@ function importCSV(file) {
                         image,
                         sizes: [], // Inicialize um array vazio de tamanhos
                         isFavorite: false,
-                        sku, // Adicione o SKU ao objeto do produto
+                        sku,
+                        price,
+                         // Adicione o SKU ao objeto do produto
                     };
 
                     // Adicione o produto ao mapeamento SKU
